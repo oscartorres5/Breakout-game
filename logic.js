@@ -1,8 +1,8 @@
 let canvas = document.getElementById('game'),
 ctx = canvas.getContext('2d'),
 ballRadius = 9,
-x = canvas.width / (Math.floor(Math.random() * Math.random() * 10) + 3);
-y= canvas.height - 40,
+x = canvas.width / (Math.floor(Math.random() * Math.random() * 10) + 3),
+y = canvas.height - 40,
 dx = 2,
 dy = -2;
 
@@ -16,7 +16,7 @@ function drawPaddle()
     ctx.beginPath();
     ctx.roundRect(paddleX,canvas.height - paddleHeight, paddleWidth,paddleHeight,30);
     ctx.fillStyle = '#333';
-    ctx.fillStyle();
+    ctx.fill();
     ctx.closePath();
 }
 
@@ -24,12 +24,12 @@ function drawPaddle()
 let paddleX = (canvas.width - paddleWidth)/2;
 
 //paddle moving with mouse function 
-document.addEvenetListener("mousemove",mouseMoveHandler,false);
+document.addEventListener("mousemove",mouseMoveHandler,false);
 
 function mouseMoveHandler(e)
 {
-    var relativeX = e.clientx - canvas.offsetLeft;
-    if(relativeX > 0 && realative < canvas.width)
+    var relativeX = e.clientX - canvas.offsetLeft;
+    if(relativeX > 0 && relativeX < canvas.width)
     {
         paddleX = relativeX - paddleWidth / 2;
     }
